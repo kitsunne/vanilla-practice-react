@@ -10,7 +10,7 @@ const CountDownTimer = () => {
 			<div className="info-container">
 				<div className="countdown-header">
 					<h1>OLD IPHONE GIVEAWAY</h1>
-					<p>Giveaway Ends On Wednesday, 27 October 2021 11:30am</p>
+					<p>Giveaway Ends On Monday, 30 May 2022 11:30am</p>
 					<p>
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit.
 						Reprehenderit molestiae cum libero atque ut voluptate qui
