@@ -1,0 +1,39 @@
+.switch-btn {
+	position: absolute;
+	bottom: 7%;
+	left: 7%;
+	width: 12rem;
+	height: 3rem;
+	display: flex;
+	border-radius: var(--radius);
+	align-items: center;
+	justify-content: space-around;
+	border: 2px solid white;
+	transition: var(--transition);
+	z-index: 5;
+}
+.switch-btn span {
+	display: inline-block;
+	font-size: 1rem;
+	cursor: pointer;
+	text-transform: capitalize;
+	color: white;
+}
+.switch {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgb(162, 226, 162);
+	border-radius: var(--radius);
+	margin: 0;
+	display: block;
+	transition: var(--transition);
+	z-index: -2;
+}
+
+.switch.slide-act {
+	left: 50%;
+	background: rgb(230, 107, 107);
+}
