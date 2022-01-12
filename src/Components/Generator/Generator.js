@@ -4,12 +4,21 @@ import "./generator.css";
 import data from "./data";
 
 const Generator = () => {
-	const [count, setCount] = useState(5);
+	const [count, setCount] = useState(0);
 	const [text, setText] = useState([]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		let amount = parseInt(count);
+		if (count <= 0) {
+			amount = 1;
+		}
+		if (count > 9) {
+			amount = 9;
+		}
+		if (count <= 0) {
+			amount = null;
+		}
 		setText(data.slice(0, amount));
 	};
 
@@ -30,7 +39,7 @@ const Generator = () => {
 				</button>
 			</form>
 			<div className="paragraph">
-				{data.map((item, index) => {
+				{text.map((item, index) => {
 					return <p key={index}>{item}</p>;
 				})}
 			</div>
