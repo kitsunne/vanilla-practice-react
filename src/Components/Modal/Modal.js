@@ -1,52 +1,60 @@
-import "./modal.css";
-import "./logo.svg";
 import React, { useState } from "react";
+import ModalHidden from "./ModalHidden";
+import styled from "styled-components";
 
 const Modal = () => {
+	const ModalOpenBtn = styled.button`
+	    text-transform: uppercase;
+	    background: transparent;
+        color: var(--clr-black);
+        padding: 0.375rem 0.75rem;
+        letter-spacing: var(--spacing);
+        display: inline-block;
+        transition: var(--transition);
+        font-size: 0.875rem;
+        border: 2px solid var(--clr-primary-5);
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        border-radius: var(--radius);
+	   &:hover {
+		    background: var(--clr-primary-5);
+            color: var(--clr-white);
+		   }
+	   }`;
+
+	const ModalBanner = styled.div`
+		display: grid;
+		grid-gap: 25px;
+		place-items: center;
+		background: var(--clr-white);
+		padding: 4rem 0;
+		border-radius: var(--radius);
+		box-shadow: var(--light-shadow);
+		text-align: center;
+		width: 90vw;
+		max-width: var(--fixed-width);
+	`;
+
+	const ModalWrapper = styled.div`
+		min-height: 100vh;
+		display: grid;
+		place-items: center;
+	`;
+
 	const [isModalOpen, setModalOpen] = useState(false);
 	return (
-		<header className="hero">
-			<div className="banner">
+		<ModalWrapper>
+			<ModalBanner>
 				<h1>modal project</h1>
-				<ModalButton text="open modal" onClick={() => setModalOpen(true)} />
-			</div>
-			<ModalWindow
-				isOpen={isModalOpen}
-				closeModal={() => setModalOpen(false)}
-			/>
-		</header>
-	);
-};
-const ModalWindow = ({ isOpen, closeModal }) => {
-	return (
-		<div
-			style={{ visibility: isOpen ? "visible" : "hidden" }}
-			className="modal-overlay"
-		>
-			<div className="modal-container">
-				<h3>modal content</h3>
-				<CloseButton
-					text={<i className="fas fa-times"></i>}
-					onClick={closeModal}
+				<ModalOpenBtn onClick={() => setModalOpen(true)}>
+					OPEN MODAL
+				</ModalOpenBtn>
+				<ModalHidden
+					isOpen={isModalOpen}
+					closeModal={() => setModalOpen(false)}
 				/>
-			</div>
-		</div>
-	);
-};
-
-const CloseButton = ({ text, onClick }) => {
-	return (
-		<button onClick={onClick} className="close-btn">
-			{text}
-		</button>
-	);
-};
-
-const ModalButton = ({ text, onClick }) => {
-	return (
-		<button onClick={onClick} className="btn modal-btn">
-			{text}
-		</button>
+			</ModalBanner>
+		</ModalWrapper>
 	);
 };
 

@@ -9,8 +9,7 @@ import Tabs from "./Components/Tabs/Tabs";
 import CountDownTimer from "./Components/CountdownTimer/CountDownTimer";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Menu from "./Components/Menu/Menu";
-import Generator from './Components/Generator/Generator';
-
+import Generator from "./Components/Generator/Generator";
 
 const App = () => {
 	return (
@@ -25,7 +24,7 @@ const App = () => {
 			<CountDownTimer />
 			<VideoPlayer />
 			<Menu />
-			<Generator/>
+			<Generator />
 		</React.Fragment>
 	);
 };
