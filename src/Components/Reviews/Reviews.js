@@ -1,6 +1,6 @@
 import "./reviews.css";
 import React, { useState } from "react";
-import { AuthorList } from "./authordata";
+import authorList from "./authorList";
 
 const Reviews = () => {
 	const [authorIdx, setAuthorIdx] = useState(0);
@@ -13,21 +13,21 @@ const Reviews = () => {
 			</div>
 			<article className="review">
 				<div className="img-container">
-					<Img id="person-img" src={AuthorList[authorIdx].img} />
+					<Img id="person-img" src={authorList[authorIdx].img} />
 				</div>
-				<InfoAuthor id="author" text={AuthorList[authorIdx].name} />
-				<InfoJob id="job" text={AuthorList[authorIdx].job} />
-				<InfoContent id="info" text={AuthorList[authorIdx].text} />
+				<InfoAuthor id="author" text={authorList[authorIdx].name} />
+				<InfoJob id="job" text={authorList[authorIdx].job} />
+				<InfoContent id="info" text={authorList[authorIdx].text} />
 				<div className="button-container">
 					<ButtonSwitch
 						text={<i className="prev-btn fas fa-chevron-left" />}
-						onClick={() => setAuthorIdx(authorIdx === 0 ? 0 : authorIdx - 1)}
+						onClick={() => setAuthorIdx(authorList === 0 ? 0 : authorIdx - 1)}
 					/>
 					<ButtonSwitch
 						text={<i className=" next-btn fas fa-chevron-right" />}
 						onClick={() =>
 							setAuthorIdx(
-								authorIdx >= AuthorList.length - 1 ? 0 : authorIdx + 1
+								authorIdx >= authorList.length - 1 ? 0 : authorIdx + 1
 							)
 						}
 					/>
@@ -35,7 +35,7 @@ const Reviews = () => {
 				<ButtonRandom
 					text="surprise me"
 					onClick={() =>
-						setAuthorIdx(Math.floor(Math.random() * (AuthorList.length)))
+						setAuthorIdx(Math.floor(Math.random() * authorList.length))
 					}
 				/>
 			</article>
