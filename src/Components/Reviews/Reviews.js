@@ -1,21 +1,23 @@
 import "./reviews.css";
 import React, { useState } from "react";
 import authorList from "./authorList";
+import styled from "styled-components";
+import devices from "../../Propreties/sizes";
 
-const Reviews = () => {
+const Reviews = (props) => {
 	const [authorIdx, setAuthorIdx] = useState(0);
-	console.log(authorIdx);
+
 	return (
-		<section className="container-reviews">
-			<div className="title-reviews">
+		<ReviewsWrapper>
+			<div style={{ textAlign: "center" }}>
 				<h2>our reviews</h2>
-				<div className="underline"></div>
+				<Underline />
 			</div>
-			<article className="review">
-				<div className="img-container">
+			<Review>
+				<ImgContainer>
 					<Img id="person-img" src={authorList[authorIdx].img} />
-				</div>
-				<InfoAuthor id="author" text={authorList[authorIdx].name} />
+				</ImgContainer>
+				<InfoAuthor id="author" text={authorList[authorIdx].name}></InfoAuthor>
 				<InfoJob id="job" text={authorList[authorIdx].job} />
 				<InfoContent id="info" text={authorList[authorIdx].text} />
 				<div className="button-container">
@@ -37,9 +39,11 @@ const Reviews = () => {
 					onClick={() =>
 						setAuthorIdx(Math.floor(Math.random() * authorList.length))
 					}
-				/>
-			</article>
-		</section>
+				>
+					surprise me
+				</ButtonRandom>
+			</Review>
+		</ReviewsWrapper>
 	);
 };
 
@@ -67,5 +71,85 @@ const ButtonRandom = ({ text, onClick }) => {
 const ButtonSwitch = ({ text, onClick }) => {
 	return <button onClick={onClick}>{text}</button>;
 };
+
+const ReviewsWrapper = styled.section`
+	@media ${devices.desktop} {
+		max-width: var(--fixed-width);
+	}
+	@media ${devices.laptopL} {
+		max-width: var(--fixed-width);
+	}
+	@media ${devices.laptop} {
+		margin-top: 200px;
+		width: 55vw;
+		min-height: 65vh;
+		display: grid;
+		place-items: center;
+	}
+	@media ${devices.tablet} {
+		width: 90vw;
+		margin: 0 auto;
+		min-height: 100vh;
+		margin-top: 100px;
+		display: flex;
+		flex-direction: column;
+	}
+`;
+
+const Underline = styled.div`
+	width: 5rem;
+	height: 0.25rem;
+	background: var(--clr-primary-5);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+`;
+
+const Review = styled.article`
+	background: var(--clr-white);
+	padding: 1.5rem 2rem;
+	border-radius: var(--radius);
+	box-shadow: var(--light-shadow);
+	transition: var(--transition);
+	text-align: center;
+	&:hover {
+		box-shadow: var(--dark-shadow);
+	}
+`;
+
+const ImgContainer = styled.div`
+	position: relative;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin: 0 auto;
+	margin-bottom: 1.5rem;
+	&:before {
+		content: "";
+		width: 100%;
+		height: 100%;
+		background: var(--clr-primary-5);
+		position: absolute;
+		top: -0.25rem;
+		right: -0.5rem;
+		border-radius: 50%;
+	}
+	&:after {
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		content: "\f10e";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 2.5rem;
+		height: 2.5rem;
+		display: grid;
+		place-items: center;
+		border-radius: 50%;
+		transform: translateY(25%);
+		background: var(--clr-primary-5);
+		color: var(--clr-white);
+	}
+`;
 
 export default Reviews;

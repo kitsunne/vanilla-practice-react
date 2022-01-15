@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import "./video.css";
 
-const Video = ({ url, playing }) => {
+const Video = () => {
 	return (
 		<div className="video-container">
-			<video
-				src={url}
-				type="video/mp4"
-				id="background-video"
-				width="100%"
-				playing={playing}
-				loop
-				muted
-				autoplay
-			/>
+			<video width="500" height="500" controls>
+				<source
+					src="https://vannilla-js-basic-project-9-video-preloader.netlify.app/video.mp4"
+					type="video/mp4"
+				></source>
+			</video>
 		</div>
 	);
 };

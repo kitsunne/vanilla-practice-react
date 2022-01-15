@@ -58,7 +58,6 @@ function Questions() {
 		align-items: center;
 		cursor: pointer;
 	`;
-
 	return (
 		<QaWrapper>
 			<QaTitle>General Questions</QaTitle>

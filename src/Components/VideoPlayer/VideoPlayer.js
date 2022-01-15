@@ -4,8 +4,7 @@ import "./videoPlayer.css";
 import React, { useState } from "react";
 
 const VideoPlayer = () => {
-	const [playing, setPlaying] = useState(true);
-
+	const [playing, setPlaying] = useState(false);
 	return (
 		<div className="player-container">
 			<Video
