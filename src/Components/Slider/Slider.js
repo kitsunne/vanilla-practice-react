@@ -1,45 +1,83 @@
-import React from "react";
-import "./slider.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { sliderContent } from "./sliderContent";
+import devices from "../../Properties/sizes";
+import styled from "styled-components";
 
 const Slider = () => {
-	const [slideIdx, setSlideIdx] = useState(0);
+	const [index, setIndex] = useState(0);
+	const { img } = sliderContent[index];
 
 	return (
 		<section>
-			<div className="slider-container">
-				<img src={sliderContent[slideIdx].img} class="slide" alt="image" />
-			</div>
-			<div className="btn-container-slider">
-				{slideIdx > 0 ? (
-					<ButtonScroll
-						onClick={() => setSlideIdx(slideIdx === 0 ? 0 : slideIdx - 1)}
-						text="prev"
-					/>
+			<SlideWrapper>
+				<SlidePic src={img} alt="pic" />
+			</SlideWrapper>
+			<ButtonScrollContainer>
+				{index > 0 ? (
+					<ButtonScroll onClick={() => setIndex(index === 0 ? 0 : index - 1)}>
+						prev
+					</ButtonScroll>
 				) : null}
 
-				{slideIdx >= sliderContent.length - 1 ? null : (
+				{index >= sliderContent.length - 1 ? null : (
 					<ButtonScroll
 						onClick={() =>
-							setSlideIdx(
-								slideIdx >= sliderContent.length - 1 ? 0 : slideIdx + 1
-							)
+							setIndex(index >= sliderContent.length - 1 ? 0 : index + 1)
 						}
-						text="next"
-					/>
+					>
+						next
+					</ButtonScroll>
 				)}
-			</div>
+			</ButtonScrollContainer>
 		</section>
 	);
 };
+const SlidePic = styled.img`
+	display: block;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	width: 100%;
+`;
+const SlideWrapper = styled.div`
+	border: 5px solid var(--clr-primary-5);
+	width: 60vw;
+	margin: 0 auto;
+	height: 100vh;
+	max-width: 70rem;
+	position: relative;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	margin-top: 4rem;
+	@media ${devices.laptopL} {
+		height: 70vh;
+	}
+	@media ${devices.tablet} {
+		height: 45vh;
+	}
+	@media ${devices.mobileL} {
+		height: 35vh;
+	}
+`;
+const ButtonScrollContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	margin-top: 0.75rem;
+`;
 
-const ButtonScroll = ({ text, onClick }) => {
-	return (
-		<button class="next-prev-btn" onClick={onClick}>
-			{text}
-		</button>
-	);
-};
+const ButtonScroll = styled.button`
+	background: transparent;
+	border-color: transparent;
+	font-size: 1.75rem;
+	cursor: pointer;
+	margin: 0 0.25rem;
+	text-transform: capitalize;
+	letter-spacing: 2px;
+	color: var(--clr-grey-5);
+	transition: var(--transition);
+	&:hover {
+		color: var(--clr-grey-3);
+	}
+`;
 
 export default Slider;

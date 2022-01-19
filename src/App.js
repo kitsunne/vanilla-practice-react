@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./Components/NavBar/NavBar";
 import Modal from "./Components/Modal/Modal";
-import Questions from "./Components/Questions/Questions";
+import QaContainer from "./Components/Questions/QaContainer";
 import Reviews from "./Components/Reviews/Reviews";
 import Slider from "./Components/Slider/Slider";
 import GroceryBud from "./Components/GroceryBud/GroceryBud";
@@ -16,7 +16,7 @@ const App = () => {
 		<React.Fragment>
 			<NavBar />
 			<Modal />
-			<Questions />
+			<QaContainer />
 			<Reviews />
 			<Slider />
 			<GroceryBud />

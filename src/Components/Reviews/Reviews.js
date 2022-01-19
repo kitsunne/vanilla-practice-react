@@ -1,111 +1,57 @@
-import "./reviews.css";
 import React, { useState } from "react";
 import authorList from "./authorList";
 import styled from "styled-components";
-import devices from "../../Propreties/sizes";
+import devices from "../../Properties/sizes";
 
-const Reviews = (props) => {
-	const [authorIdx, setAuthorIdx] = useState(0);
+const Reviews = () => {
+	const [index, setIndex] = useState(0);
+	const { name, job, img, text } = authorList[index];
 
 	return (
 		<ReviewsWrapper>
-			<div style={{ textAlign: "center" }}>
+			<ReviewsHeader>
 				<h2>our reviews</h2>
 				<Underline />
-			</div>
-			<Review>
+			</ReviewsHeader>
+			<ReviewContent>
 				<ImgContainer>
-					<Img id="person-img" src={authorList[authorIdx].img} />
+					<AuthorImg src={img} alt={name} />
 				</ImgContainer>
-				<InfoAuthor id="author" text={authorList[authorIdx].name}></InfoAuthor>
-				<InfoJob id="job" text={authorList[authorIdx].job} />
-				<InfoContent id="info" text={authorList[authorIdx].text} />
-				<div className="button-container">
+				<ItemAuthor>{name}</ItemAuthor>
+				<ItemJob>{job}</ItemJob>
+				<ItemText>{text}</ItemText>
+				<ButtonContainer>
 					<ButtonSwitch
-						text={<i className="prev-btn fas fa-chevron-left" />}
-						onClick={() => setAuthorIdx(authorList === 0 ? 0 : authorIdx - 1)}
-					/>
-					<ButtonSwitch
-						text={<i className=" next-btn fas fa-chevron-right" />}
 						onClick={() =>
-							setAuthorIdx(
-								authorIdx >= authorList.length - 1 ? 0 : authorIdx + 1
-							)
+							setIndex(index >= authorList.length == 0 ? 0 : index - 1)
 						}
-					/>
-				</div>
+					>
+						<i className="fas fa-chevron-left" />
+					</ButtonSwitch>
+					<ButtonSwitch
+						onClick={() =>
+							setIndex(index >= authorList.length - 1 ? 0 : index + 1)
+						}
+					>
+						<i className="fas fa-chevron-right" />
+					</ButtonSwitch>
+				</ButtonContainer>
 				<ButtonRandom
-					text="surprise me"
 					onClick={() =>
-						setAuthorIdx(Math.floor(Math.random() * authorList.length))
+						setIndex(Math.floor(Math.random() * authorList.length))
 					}
 				>
 					surprise me
 				</ButtonRandom>
-			</Review>
+			</ReviewContent>
 		</ReviewsWrapper>
 	);
 };
 
-const Img = ({ src }) => {
-	return <img src={src} id="person-img" alt="image" />;
-};
-const InfoAuthor = ({ text }) => {
-	return <h4 id="author">{text}</h4>;
-};
-const InfoJob = (props) => {
-	return <p id="job">{props.text}</p>;
-};
-const InfoContent = ({ text }) => {
-	return <p id="info">{text}</p>;
-};
-
-const ButtonRandom = ({ text, onClick }) => {
-	return (
-		<button className="random-btn" onClick={onClick}>
-			{text}
-		</button>
-	);
-};
-
-const ButtonSwitch = ({ text, onClick }) => {
-	return <button onClick={onClick}>{text}</button>;
-};
-
-const ReviewsWrapper = styled.section`
-	@media ${devices.desktop} {
-		max-width: var(--fixed-width);
-	}
-	@media ${devices.laptopL} {
-		max-width: var(--fixed-width);
-	}
-	@media ${devices.laptop} {
-		margin-top: 200px;
-		width: 55vw;
-		min-height: 65vh;
-		display: grid;
-		place-items: center;
-	}
-	@media ${devices.tablet} {
-		width: 90vw;
-		margin: 0 auto;
-		min-height: 100vh;
-		margin-top: 100px;
-		display: flex;
-		flex-direction: column;
-	}
+const ReviewsHeader = styled.div`
+	text-align: "center";
 `;
-
-const Underline = styled.div`
-	width: 5rem;
-	height: 0.25rem;
-	background: var(--clr-primary-5);
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 20px;
-`;
-
-const Review = styled.article`
+const ReviewContent = styled.article`
 	background: var(--clr-white);
 	padding: 1.5rem 2rem;
 	border-radius: var(--radius);
@@ -116,7 +62,6 @@ const Review = styled.article`
 		box-shadow: var(--dark-shadow);
 	}
 `;
-
 const ImgContainer = styled.div`
 	position: relative;
 	width: 150px;
@@ -150,6 +95,88 @@ const ImgContainer = styled.div`
 		background: var(--clr-primary-5);
 		color: var(--clr-white);
 	}
+`;
+const AuthorImg = styled.img`
+	width: 100%;
+	display: block;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	position: relative;
+`;
+const ItemAuthor = styled.h4`
+	margin-bottom: 0.25rem;
+	text-size: 0.2rem;
+`;
+const ItemJob = styled.h1`
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+	color: var(--clr-primary-5);
+	font-size: 0.85rem;
+`;
+const ItemText = styled.p`
+	margin-bottom: 0.75rem;
+`;
+const ButtonContainer = styled.div``;
+const ButtonSwitch = styled.button`
+	color: var(--clr-primary-7);
+	font-size: 1.25rem;
+	background: transparent;
+	border-color: transparent;
+	margin: 0 0.5rem;
+	transition: var(--transition);
+	cursor: pointer;
+	&:hover {
+		color: var(--clr-primary-5);
+`;
+const ButtonRandom = styled.button`
+	font-size: 1.25rem;
+	background: transparent;
+	border-color: transparent;
+	margin: 0 0.5rem;
+	transition: var(--transition);
+	margin-top: 0.5rem;
+	color: var(--clr-primary-5);
+	padding: 0.25rem 0.5rem;
+	text-transform: capitalize;
+	border-radius: var(--radius);
+	border-color: var(--clr-primary-5);
+	cursor: pointer;
+	&:hover {
+		background: var(--clr-primary-5);
+		color: var(--clr-primary-1);
+	}
+`;
+const ReviewsWrapper = styled.section`
+	@media ${devices.desktop} {
+		max-width: var(--fixed-width);
+	}
+	@media ${devices.laptopL} {
+		max-width: var(--fixed-width);
+	}
+	@media ${devices.laptop} {
+		margin-top: 200px;
+		width: 55vw;
+		min-height: 65vh;
+		display: grid;
+		place-items: center;
+	}
+	@media ${devices.tablet} {
+		width: 90vw;
+		margin: 0 auto;
+		min-height: 100vh;
+		margin-top: 100px;
+		display: flex;
+		flex-direction: column;
+	}
+`;
+const Underline = styled.div`
+	width: 5rem;
+	height: 0.25rem;
+	background: var(--clr-primary-5);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
 `;
 
 export default Reviews;

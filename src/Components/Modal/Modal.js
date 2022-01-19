@@ -3,7 +3,25 @@ import ModalHidden from "./ModalHidden";
 import styled from "styled-components";
 
 const Modal = () => {
-	const ModalOpenBtn = styled.button`
+	const [isModalOpen, setModalOpen] = useState(false);
+	
+	return (
+		<ModalWrapper>
+			<ModalBanner>
+				<h1>modal project</h1>
+				<ModalOpenBtn onClick={() => setModalOpen(true)}>
+					OPEN MODAL
+				</ModalOpenBtn>
+				<ModalHidden
+					isOpen={isModalOpen}
+					closeModal={() => setModalOpen(false)}
+				/>
+			</ModalBanner>
+		</ModalWrapper>
+	);
+};
+
+const ModalOpenBtn = styled.button`
 	    text-transform: uppercase;
 	    background: transparent;
         color: var(--clr-black);
@@ -41,21 +59,5 @@ const Modal = () => {
 		place-items: center;
 	`;
 
-	const [isModalOpen, setModalOpen] = useState(false);
-	return (
-		<ModalWrapper>
-			<ModalBanner>
-				<h1>modal project</h1>
-				<ModalOpenBtn onClick={() => setModalOpen(true)}>
-					OPEN MODAL
-				</ModalOpenBtn>
-				<ModalHidden
-					isOpen={isModalOpen}
-					closeModal={() => setModalOpen(false)}
-				/>
-			</ModalBanner>
-		</ModalWrapper>
-	);
-};
 
 export default Modal;

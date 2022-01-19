@@ -1,54 +1,70 @@
-import React, { useState } from "react";
-import "./navBar.css";
-import { menuItems } from "./menuItems";
-import styled, { css } from "styled-components";
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
+import { links, social } from "./navData";
+import styled from "styled-components";
+import devices from "../../Properties/sizes";
 
-const NavBar = (props) => {
-	const [open, setOpen] = useState(false);
-
+const Navbar = () => {
+	const [showLinks, setShowLinks] = useState(false);
+	const linksContainerRef = useRef(null);
+	const linksRef = useRef(null);
+	const toggleLinks = () => {
+		setShowLinks(!showLinks);
+	};
+	useEffect(() => {
+		const linksHeight = linksRef.current.getBoundingClientRect().height;
+		if (showLinks) {
+			linksContainerRef.current.style.height = `${linksHeight}px`;
+		} else {
+			linksContainerRef.current.style.height = "0px";
+		}
+	}, [showLinks]);
 	return (
 		<Nav>
-			<LogoWrapper>
-				<Logo src="https://vanilla-js-basic-project-4-navbar.netlify.app/logo.svg" />
-			</LogoWrapper>
-			<IconWrapper onClick={() => setOpen(!open)}>
-				<i className={open ? "fas fa-times" : "fas fa-bars"}></i>
-			</IconWrapper>
-			<ul className={open ? "nav-menu active" : "nav-menu"}>
-				{menuItems.map((item, index) => {
-					return (
-						<li key={index}>
-							<a className={item.cName} href={item.url}>
-								{item.title}
-							</a>
-						</li>
-					);
-				})}
-			</ul>
+			<NavWrapper>
+				<NavHeader>
+					<Logo
+						src="https://vanilla-js-basic-project-4-navbar.netlify.app/logo.svg"
+						alt="logo"
+					/>
+					<NavToggle onClick={toggleLinks}>
+						<FaBars />
+					</NavToggle>
+				</NavHeader>
+				<LinksContainer ref={linksContainerRef}>
+					<LinksList ref={linksRef}>
+						{links.map((link) => {
+							const { id, url, text } = link;
+							return (
+								<li key={id}>
+									<Links href={url}>{text}</Links>
+								</li>
+							);
+						})}
+					</LinksList>
+				</LinksContainer>
+				<SocialIcons>
+					{social.map((socialIcon) => {
+						const { id, url, icon } = socialIcon;
+						return (
+							<li key={id}>
+								<SocialLinks href={url}>{icon}</SocialLinks>
+							</li>
+						);
+					})}
+				</SocialIcons>
+			</NavWrapper>
 		</Nav>
 	);
 };
 
-const Nav = styled.div`
+const Nav = styled.nav`
 	background: var(--clr-white);
 	box-shadow: var(--light-shadow);
-	height: 50px;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	display: flex;
-	width: 100vw;
-	z-index: 10;
-
-	@media (max-width: 992px) {
-		position: relative;
-		width: 100vw;
-		display: grid;
-		place-items: center;
-	}
-	@media (min-width: 800px) {
-		width: 100vw;
-		min-width: 1170px;
+`;
+const NavWrapper = styled.div`
+	@media ${devices.tablet} {
+		max-width: 1170px;
 		margin: 0 auto;
 		display: flex;
 		align-items: center;
@@ -56,103 +72,96 @@ const Nav = styled.div`
 		padding: 1rem;
 	}
 `;
-
-const LogoWrapper = styled.h1`
-	justify-self: start;
+const NavHeader = styled.div`
+	display: flex;
 	align-items: center;
-	margin-left: 20px;
-	cursor: pointer;
-	justify-content: center;
-
-	@media (max-width: 992px) {
-	}
-	@media (min-width: 800px) {
+	justify-content: space-between;
+	padding: 1rem;
+	@media ${devices.tablet} {
+		padding: 0;
 	}
 `;
-
 const Logo = styled.img`
-	margin-left: 0.5rem;
-	font-size: 1.6rem;
-
-	@media (max-width: 992px) {
-		position: absolute;
-		top: 0;
-		left: 0;
-		transform: translate(5%, 35%);
-		height: 50px;
-	}
-	@media (min-width: 800px) {
-		position: absolute;
-		top: 0;
-		left: 0;
-		transform: translate(25%, 40%);
-		height: 40px;
-	}
+	height: 40px;
 `;
-const IconWrapper = styled.div`
-	display: none;
 
-	@media (max-width: 992px) {
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		transform: translate(-100%, 60%);
-		cursor: pointer;
-		font-size: 1.8rem;
+const NavToggle = styled.button`
+	font-size: 1.5rem;
+	color: var(--clr-primary-5);
+	background: transparent;
+	border-color: transparent;
+	transition: var(--transition);
+	cursor: pointer;
+	&:hover {
+		color: var(--clr-primary-1);
+		transform: rotate(90deg);
 	}
-	@media (min-width: 800px) {
+	@media ${devices.tablet} {
 		display: none;
-		margin-left: 10px;
+	}
+`;
+const LinksContainer = styled.div`
+	height: 0;
+	overflow: hidden;
+	transition: var(--transition);
+	@media ${devices.tablet} {
+		height: auto !important;
+	}
+	@media ${devices.mobileL} {
+		height: auto !important;
+	}
+	@media ${devices.mobileM} {
+		height: auto !important;
+	}
+	@media ${devices.mobileS} {
+		height: auto !important;
+	}
+`;
+const LinksList = styled.ul`
+	@media ${devices.tablet} {
+		display: flex;
+	}
+`;
+const SocialIcons = styled.ul`
+	display: none;
+	@media ${devices.tablet} {
+		display: flex;
+		&:hover a {
+			color: var(--clr-primary-7);
+		}
+	}
+`;
+const Links = styled.a`
+	color: var(--clr-grey-3);
+	font-size: 1rem;
+	text-transform: capitalize;
+	letter-spacing: var(--spacing);
+	display: block;
+	padding: 0.5rem 1rem;
+	transition: var(--transition);
+	&:hover {
+		background: var(--clr-primary-8);
+		color: var(--clr-primary-5);
+		padding-left: 1.5rem;
+	}
+	@media ${devices.tablet} {
+		padding: 0;
+		margin: 0 0.5rem;
+		&:hover {
+			padding: 0;
+			background: transparent;
+		}
+	}
+`;
+const SocialLinks = styled.a`
+	@media ${devices.tablet} {
+		margin: 0 0.5rem;
+		color: var(--clr-primary-5);
+		transition: var(--transition);
+		&:hover {
+			color: var(--clr-primary-7);
+		}
 	}
 `;
 
-const NavMenu = styled.ul`
-	${(open) => {
-		if (open === true) {
-			css`
-				background-color: #fff;
-				left: 0;
-				opacity: 1;
-				transition: all 0.5s ease;
-				z-index: 1;
-
-				@media (max-width: 992px) {
-					background-color: #fff;
-					left: 0;
-					opacity: 1;
-					transition: all 0.5s ease;
-					z-index: 1;
-				}
-				@media (min-width: 800px) {
-				}
-			`;
-		} else {
-			css`
-				display: grid;
-				grid-template-columns: repeat(5, auto);
-				grid-gap: 10px;
-				list-style: none;
-				text-align: center;
-				justify-content: end;
-				margin-right: 2rem;
-
-				@media (max-width: 992px) {
-					display: flex;
-					flex-direction: column;
-					width: 100%;
-					height: 700px;
-					position: absolute;
-					top: 80px;
-					left: -100%;
-					opacity: 1;
-					transition: all 0.5s ease;
-				}
-				@media (min-width: 800px) {
-				}
-			`;
-		}
-	}}
-`;
-
-export default NavBar;
+export default Navbar;
