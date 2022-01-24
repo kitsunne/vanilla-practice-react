@@ -1,25 +1,25 @@
 import React from "react";
-import { NavLink, Routes } from "react-router-dom";
+import { Link, Routes } from "react-router-dom";
 import styled from "styled-components";
 
 const ItemNavBar = () => {
   return (
-    <NavWrapper>
-      <NavItem>
+    <div>
+      <div>
         <Routes>
-          <NavLink to="/modal">Modal</NavLink>
-          <NavLink to="/qa">QA</NavLink>
-          <NavLink to="/reviews">Reviews</NavLink>
-          <NavLink to="/slider">Slider</NavLink>
-          <NavLink to="/grocerybud">To Buy List</NavLink>
-          <NavLink to="/tabs">Tabs</NavLink>
-          <NavLink to="/timer">Timer</NavLink>
-          <NavLink to="/videoplayer">Video Player</NavLink>
-          <NavLink to="/menu">Menu</NavLink>
-          <NavLink to="/generator">Generator</NavLink>
+          <Link to="modal">Modal</Link>
+          <Link to="qa">QA</Link>
+          <Link to="reviews">Reviews</Link>
+          <Link to="slider">Slider</Link>
+          <Link to="grocerybud">To Buy List</Link>
+          <Link to="tabs">Tabs</Link>
+          <Link to="timer">Timer</Link>
+          <Link to="videoplayer">Video Player</Link>
+          <Link to="menu">Menu</Link>
+          <Link to="generator">Generator</Link>
         </Routes>
-      </NavItem>
-    </NavWrapper>
+      </div>
+    </div>
   );
 };
 

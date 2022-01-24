@@ -10,32 +10,30 @@ import CountDownTimer from "./Components/CountdownTimer/CountDownTimer";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Menu from "./Components/Menu/Menu";
 import Generator from "./Components/Generator/Generator";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import ItemNavBar from "./Components/ItemsNavBar/ItemsNavBar";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AppWrapper>
-        <NavBar />
-        <ItemNavBar />
-        <AppWrapperContent>
-          <Routes>
-            <Route exact path="/modal" element={<Modal />} />
-            <Route exact path="/qa" element={<QaContainer />} />
-            <Route exact path="/reviews" element={<Reviews />} />
-            <Route exact path="/slider" element={<Slider />} />
-            <Route exact path="/grocerybud" element={<GroceryBud />} />
-            <Route exact path="/tabs" element={<Tabs />} />
-            <Route exact path="/timer" element={<CountDownTimer />} />
-            <Route exact path="/videoplayer" element={<VideoPlayer />} />
-            <Route exact path="/menu" element={<Menu />} />
-            <Route exact path="/generator" element={<Generator />} />
-          </Routes>
-        </AppWrapperContent>
-      </AppWrapper>
-    </BrowserRouter>
+    <AppWrapper>
+      <ItemNavBar />
+      <AppWrapperContent>
+        <Routes>
+          <Route path="/" element={<NavBar/>} />
+          <Route path="/modal" element={<Modal />} />
+          <Route path="/qa" element={<QaContainer />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/slider" element={<Slider />} />
+          <Route path="/grocerybud" element={<GroceryBud />} />
+          <Route path="/tabs" element={<Tabs />} />
+          <Route path="/timer" element={<CountDownTimer />} />
+          <Route path="/videoplayer" element={<VideoPlayer />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/generator" element={<Generator />} />
+        </Routes>
+      </AppWrapperContent>
+    </AppWrapper>
   );
 };
 
