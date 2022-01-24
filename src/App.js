@@ -10,10 +10,15 @@ import CountDownTimer from "./Components/CountdownTimer/CountDownTimer";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Menu from "./Components/Menu/Menu";
 import Generator from "./Components/Generator/Generator";
+import {Routes,Link}from "react-router-dom"
 
 const App = () => {
 	return (
-		<React.Fragment>
+		
+		
+		<div className="app-wrapper">
+		
+<Routes>
 			<NavBar />
 			<Modal />
 			<QaContainer />
@@ -25,7 +30,8 @@ const App = () => {
 			<VideoPlayer />
 			<Menu />
 			<Generator />
-		</React.Fragment>
+			</Routes>
+		</div>
 	);
 };
 
