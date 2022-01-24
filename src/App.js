@@ -10,13 +10,13 @@ import CountDownTimer from "./Components/CountdownTimer/CountDownTimer";
 import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
 import Menu from "./Components/Menu/Menu";
 import Generator from "./Components/Generator/Generator";
-import { BrowserRouter, BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import ItemNavBar from "./Components/ItemsNavBar/ItemsNavBar";
 
 const App = () => {
   return (
-    <BrowserRouter/>
+    <BrowserRouter>
       <AppWrapper>
         <NavBar />
         <ItemNavBar />
@@ -35,6 +35,7 @@ const App = () => {
           </Routes>
         </AppWrapperContent>
       </AppWrapper>
+    </BrowserRouter>
   );
 };
 
