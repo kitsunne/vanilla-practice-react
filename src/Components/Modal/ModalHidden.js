@@ -1,46 +1,46 @@
 import styled from "styled-components";
 
 const ModalHidden = ({ isOpen, closeModal }) => {
-	return (
-		<ModalContainer style={{ visibility: isOpen ? "visible" : "hidden" }}>
-			<h3>modal content</h3>
-			<ModalExitBtn onClick={closeModal}>
-				{<i className="fas fa-times"></i>}
-			</ModalExitBtn>
-		</ModalContainer>
-	);
+  return (
+    <ModalContainer style={{ visibility: isOpen ? "visible" : "hidden" }}>
+      <ModalText>modal content</ModalText>
+      <ModalExitBtn onClick={closeModal}>
+        {<i className="fas fa-times"></i>}
+      </ModalExitBtn>
+    </ModalContainer>
+  );
 };
 
 const ModalContainer = styled.div`
-	position: fixed;
-	top: 45%;
-	left: 33.8%;
-	background: rgba(73, 166, 233, 0.5);
-	display: grid;
-	place-items: center;
-	transition: var(--transition);
-	background: var(--clr-white);
-	border-radius: var(--radius);
-	width: 125vw;
-	height: 30vh;
-	max-width: var(--fixed-width);
-	text-align: center;
-	@media (max-width: 992px) {
-		min-height: 10vh;
-		top: 40%;
-		left: 33.8%;
-		display: grid;
-		place-items: center;
-	}
-	@media (min-width: 600px) {
-	}
+  position: fixed;
+  top: 25%;
+  left: 37%;
+  background: rgba(73, 166, 233, 0.5);
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+  background: var(--clr-primary-7);
+  border-radius: var(--radius);
+  width: 155vw;
+  height: 50vh;
+  max-width: var(--fixed-width);
+  text-align: center;
+  @media (max-width: 992px) {
+    min-height: 10vh;
+    top: 40%;
+    left: 33.8%;
+    display: grid;
+    place-items: center;
+  }
+  @media (min-width: 600px) {
+  }
 `;
 
 const ModalExitBtn = styled.button`
 		position: absolute;
 		top: 1.5rem;
 		right: 1.5rem;
-		font-size: 1.2rem;
+		font-size: 2.5rem;
 		background: transparent;
 		border-color: transparent;
 		color: var(--clr-red-dark);
@@ -52,5 +52,7 @@ const ModalExitBtn = styled.button`
 			}
 		}
 	`;
-
+const ModalText = styled.h3`
+  font-size: 2.5rem;
+`;
 export default ModalHidden;

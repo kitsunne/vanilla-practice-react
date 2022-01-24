@@ -17,20 +17,20 @@ import ItemNavBar from "./Components/ItemsNavBar/ItemsNavBar";
 const App = () => {
   return (
     <AppWrapper>
+      <NavBar />
       <ItemNavBar />
       <AppWrapperContent>
         <Routes>
-          <Route path="/" element={<NavBar/>} />
-          <Route path="/modal" element={<Modal />} />
-          <Route path="/qa" element={<QaContainer />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/slider" element={<Slider />} />
-          <Route path="/grocerybud" element={<GroceryBud />} />
-          <Route path="/tabs" element={<Tabs />} />
-          <Route path="/timer" element={<CountDownTimer />} />
-          <Route path="/videoplayer" element={<VideoPlayer />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/generator" element={<Generator />} />
+          <Route path="modal" element={<Modal />} />
+          <Route path="qa" element={<QaContainer />} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="slider" element={<Slider />} />
+          <Route path="grocerybud" element={<GroceryBud />} />
+          <Route path="tabs" element={<Tabs />} />
+          <Route path="timer" element={<CountDownTimer />} />
+          <Route path="videoplayer" element={<VideoPlayer />} />
+          <Route path="menu" element={<Menu />} />
+          <Route path="generator" element={<Generator />} />
         </Routes>
       </AppWrapperContent>
     </AppWrapper>
@@ -39,19 +39,19 @@ const App = () => {
 
 const AppWrapper = styled.div`
   display: grid;
-  width: 1200px;
+  width: 100vw;
+  height: 100vh;
   grid-template-areas:
     "header header"
     "nav content";
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 100px 2fr;
   grid-template-columns: 3fr 10fr;
   grid-gap: 5px;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25), 0 15px 25px rgba(0, 0, 0, 0.25);
 `;
 
 const AppWrapperContent = styled.div`
-  grid-area: cont;
-  background-color: #fecea8;
+  background-color: white;
 `;
 
 export default App;

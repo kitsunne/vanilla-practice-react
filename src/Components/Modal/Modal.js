@@ -3,22 +3,22 @@ import ModalHidden from "./ModalHidden";
 import styled from "styled-components";
 
 const Modal = () => {
-	const [isModalOpen, setModalOpen] = useState(false);
-	
-	return (
-		<ModalWrapper>
-			<ModalBanner>
-				<h1>modal project</h1>
-				<ModalOpenBtn onClick={() => setModalOpen(true)}>
-					OPEN MODAL
-				</ModalOpenBtn>
-				<ModalHidden
-					isOpen={isModalOpen}
-					closeModal={() => setModalOpen(false)}
-				/>
-			</ModalBanner>
-		</ModalWrapper>
-	);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  return (
+    <ModalWrapper>
+      <ModalBanner>
+        <h1>modal project</h1>
+        <ModalOpenBtn onClick={() => setModalOpen(true)}>
+          OPEN MODAL
+        </ModalOpenBtn>
+        <ModalHidden
+          isOpen={isModalOpen}
+          closeModal={() => setModalOpen(false)}
+        />
+      </ModalBanner>
+    </ModalWrapper>
+  );
 };
 
 const ModalOpenBtn = styled.button`
@@ -40,24 +40,24 @@ const ModalOpenBtn = styled.button`
 		   }
 	   }`;
 
-	const ModalBanner = styled.div`
-		display: grid;
-		grid-gap: 25px;
-		place-items: center;
-		background: var(--clr-white);
-		padding: 4rem 0;
-		border-radius: var(--radius);
-		box-shadow: var(--light-shadow);
-		text-align: center;
-		width: 90vw;
-		max-width: var(--fixed-width);
-	`;
+const ModalBanner = styled.div`
+  display: grid;
+  grid-gap: 25px;
+  place-items: center;
+  background: var(--clr-white);
+  padding: 4rem 0;
+  border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
+  text-align: center;
+  width: 90vw;
+  max-width: var(--fixed-width);
+`;
 
-	const ModalWrapper = styled.div`
-		min-height: 100vh;
-		display: grid;
-		place-items: center;
-	`;
-
+const ModalWrapper = styled.div`
+  min-height: auto;
+  margin: 90px auto;
+  display: grid;
+  place-items: center;
+`;
 
 export default Modal;
