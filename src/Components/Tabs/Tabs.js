@@ -14,7 +14,7 @@ const Tabs = () => {
       </TabsHeader>
       <TabsContentContainer>
         <TabsImgContainer>
-          <TabsImg
+          <img
             src="https://github.com/john-smilga/javascript-basic-projects/blob/master/11-tabs/final/hero-bcg.jpeg?raw=true"
             alt="TabImage"
           />
@@ -31,8 +31,8 @@ const TabsWrapper = styled.div`
 `;
 const TabsHeader = styled.div`
   text-align: center;
-  margin-bottom: 50px;
-  ::p {
+  margin-bottom: 25px;
+  &p {
     font-size: 1.5rem;
     width: 80%;
     margin: 0 auto;
@@ -42,19 +42,18 @@ const TabsHeader = styled.div`
 const TabsContentContainer = styled.div`
   display: flex;
   justify-content: center;
-  letter-spacing: 20px;
+  letter-spacing: 15px;
   align-items: center;
 `;
 const TabsImgContainer = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin: 0 30px;
-`;
-
-const TabsImg = styled.img`
-  border-radius: var(--radius);
-  object-fit: cover;
-  width: 400px;
-  height: 200px;
+  img {
+    border-radius: var(--radius);
+    object-fit: cover;
+    width: 450px;
+    height: 330px;
+  }
 `;
 
 export default Tabs;

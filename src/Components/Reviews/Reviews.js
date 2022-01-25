@@ -149,26 +149,27 @@ const ButtonRandom = styled.button`
 `;
 const ReviewsWrapper = styled.section`
   @media ${devices.desktop} {
-    width: 100vw;
-    max-width: var(--fixed-width);
-    width: auto;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
   }
-  s @media ${devices.laptopL} {
+  @media ${devices.laptopL} {
+    margin: 0 auto;
     width: 70vw;
     max-width: var(--fixed-width);
   }
   @media ${devices.laptop} {
-    margin-top: 200px;
+    margin: 0 auto;
     width: 55vw;
     min-height: 65vh;
     display: grid;
     place-items: center;
   }
   @media ${devices.tablet} {
+    margin: 0 auto;
     width: 90vw;
     margin: 0 auto;
     min-height: 100vh;
-    margin-top: 100px;
     display: flex;
     flex-direction: column;
   }

@@ -14,14 +14,14 @@ const ModalHidden = ({ isOpen, closeModal }) => {
 const ModalContainer = styled.div`
   position: fixed;
   top: 25%;
-  left: 37%;
+  left: 40%;
   background: rgba(73, 166, 233, 0.5);
   display: grid;
   place-items: center;
   transition: var(--transition);
   background: var(--clr-primary-7);
   border-radius: var(--radius);
-  width: 155vw;
+  width: 160vw;
   height: 50vh;
   max-width: var(--fixed-width);
   text-align: center;

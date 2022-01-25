@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const ItemNavBar = () => {
+const ItemsNavBar = () => {
   return (
     <NavWrapper>
       <LinkList>
@@ -36,14 +36,13 @@ const StyledLink = styled(Link)`
   padding-bottom: 10px;
   text-transform: capitalize;
   letter-spacing: var(--spacing);
+  margin-bottom: 10px;
   &:hover {
     color: var(--clr-primary-7);
   }
 `;
 const NavWrapper = styled.nav`
   grid-area: nav;
-  height: auto;
-  margin: 0;
 `;
 
-export default ItemNavBar;
+export default ItemsNavBar;

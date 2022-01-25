@@ -12,13 +12,13 @@ import Menu from "./Components/Menu/Menu";
 import Generator from "./Components/Generator/Generator";
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-import ItemNavBar from "./Components/ItemsNavBar/ItemsNavBar";
+import ItemsNavBar from "./Components/ItemsNavBar/ItemsNavBar";
 
 const App = () => {
   return (
     <AppWrapper>
       <NavBar />
-      <ItemNavBar />
+      <ItemsNavBar />
       <AppWrapperContent>
         <Routes>
           <Route path="modal" element={<Modal />} />
@@ -39,18 +39,19 @@ const App = () => {
 
 const AppWrapper = styled.div`
   display: grid;
-  width: 100vw;
-  height: 100vh;
+  width: 1500px;
+  margin: 0 auto;
+  height: 100%;
   grid-template-areas:
     "header header"
     "nav content";
   grid-template-rows: 100px 2fr;
-  grid-template-columns: 3fr 10fr;
+  grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25), 0 15px 25px rgba(0, 0, 0, 0.25);
 `;
 
 const AppWrapperContent = styled.div`
+  grid-area: content;
   background-color: white;
 `;
 

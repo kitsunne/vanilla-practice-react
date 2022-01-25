@@ -8,7 +8,9 @@ const QaContainer = () => {
   const [item, setItem] = useState(questions);
   return (
     <QaWrapper>
-      <QaTittle>questions and answers about login</QaTittle>
+      <QaTittleContainer>
+        <QaTittle>Questions and answers about login</QaTittle>
+      </QaTittleContainer>
       <QaAccordion>
         {questions.map((item) => {
           return <Question key={item.id} {...item}></Question>;
@@ -19,23 +21,29 @@ const QaContainer = () => {
 };
 
 const QaWrapper = styled.div`
-  width: 90vw;
-  margin: 90px auto;
-  background: var(--clr-white);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
+  margin: 0 auto;
   max-width: var(--fixed-width);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 250px 1fr;
   @media ${devices.tablet} {
+    min-height: auto;
+    margin: 80px auto;
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-column-gap: 30px;
+    grid-template-columns: 1fr 2fr;
+  }
+  @media ${devices.mobileS} {
   }
 `;
+
+const QaTittleContainer = styled.div`
+  justify-self: start;
+  text-align: left;
+`;
 const QaTittle = styled.h3`
-  line-height: 1.2;
-  font-weight: 500;
-  margin-right: 25px;
+  line-height: 1;
+  font-size: 1.5rem;
+  text-align: left;
 `;
 const QaAccordion = styled.section`
   width: 90vw;
@@ -49,7 +57,13 @@ const QaAccordion = styled.section`
     width: 95vw;
   }
   @media ${devices.tablet} {
-    width: 95vw;
+    width: 70vw;
+  }
+  @media ${devices.mobileM} {
+    width: 60vw;
+  }
+  @media ${devices.mobileS} {
+    width: 40vw;
   }
 `;
 

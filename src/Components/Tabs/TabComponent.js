@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./tabComponent.css";
 import styled from "styled-components";
 
 function TabComponent() {
@@ -10,33 +9,33 @@ function TabComponent() {
   };
 
   return (
-    <TabsItems className="container-tabs">
+    <TabsItems>
       <TabBlock>
-        <button
-          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+        <TabButton
+          className={toggleState === 1 ? "active" : "default"}
           onClick={() => toggleTab(1)}
         >
           History
-        </button>
-        <button
-          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+        </TabButton>
+        <TabButton
+          className={toggleState === 2 ? "active" : "default"}
           onClick={() => toggleTab(2)}
         >
           Vision
-        </button>
-        <button
-          className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+        </TabButton>
+        <TabButton
+          className={toggleState === 3 ? "active" : "default"}
           onClick={() => toggleTab(3)}
         >
           Goals
-        </button>
+        </TabButton>
       </TabBlock>
 
-      <div className="content-tabs">
+      <TabsContent>
         <div
-          className={toggleState === 1 ? "content  active-content" : "content"}
+          style={toggleState === 1 ? { display: "block" } : { display: "none" }}
         >
-          <h2>History</h2>
+          <TabsName>History</TabsName>
 
           <TabsText>
             I'm baby wolf pickled schlitz try-hard normcore marfa man bun
@@ -50,9 +49,9 @@ function TabComponent() {
         </div>
 
         <div
-          className={toggleState === 2 ? "content  active-content" : "content"}
+          style={toggleState === 2 ? { display: "block" } : { display: "none" }}
         >
-          <h2>Vision</h2>
+          <TabsName>Vision</TabsName>
 
           <TabsText>
             Man bun PBR&B keytar copper mug prism, hell of helvetica. Synth
@@ -67,9 +66,13 @@ function TabComponent() {
         </div>
 
         <div
-          className={toggleState === 3 ? "content  active-content" : "content"}
+          style={
+            toggleState === 3
+              ? { display: "block", padding: 0 }
+              : { display: "none" }
+          }
         >
-          <h2>Goals</h2>
+          <TabsName>Goals</TabsName>
           <TabsText>
             Chambray authentic truffaut, kickstarter brunch taxidermy vape
             heirloom four dollar toast raclette shoreditch church-key. Poutine
@@ -82,17 +85,69 @@ function TabComponent() {
             booth quinoa chicharrones.
           </TabsText>
         </div>
-      </div>
+      </TabsContent>
     </TabsItems>
   );
 }
+const TabsName = styled.h2`
+  color: black;
+  font-size: 20px;
+`;
+const TabsContent = styled.div`
+  font-size: 20px;
+  background: white;
+  letter-spacing: 0;
+  color: var(--clr-grey-5);
+  padding: 2rem;
+  margin: 0.2rem 0;
+  height: fit-content;
+`;
 
+const TabButton = styled.button`
+  &.default {
+    color: black;
+    padding: 1rem 0;
+    text-transform: capitalize;
+    font-size: 1rem;
+    display: block;
+    background: var(--clr-primary-7);
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: var(--spacing);
+    margin: 0;
+  }
+  &.active {
+    color: black;
+    padding: 1rem 0;
+    text-transform: capitalize;
+    font-size: 1rem;
+    display: block;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: var(--spacing);
+    margin: 0;
+    background: var(--clr-white);
+  }
+  &:nth-child(1) {
+    border-top-left-radius: var(--radius);
+  }
+  &:nth-child(3) {
+    border-top-right-radius: var(--radius);
+  }
+  &:hover {
+    background: var(--clr-primary-10);
+    color: var(--clr-primary-5);
+  }
+  &h2 {
+    color: black;
+    font-size: 20px;
+  }
+`;
 const TabsItems = styled.div`
   display: flex;
   flex-direction: column;
   width: 600px;
   height: 350px;
-  background: #f1f1f1;
   border-radius: var(--radius);
   background: var(--clr-white);
   padding: 0;
@@ -103,14 +158,9 @@ const TabBlock = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   width: 500px;
 `;
-const TabsButtons = styled.div`
-  border-top-right-radius: var(--radius);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-`;
 const TabsText = styled.p`
   font-size: 1rem;
-  width: 400px;
+  width: 480px;
 `;
 
 export default TabComponent;
