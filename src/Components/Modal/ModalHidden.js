@@ -13,8 +13,8 @@ const ModalHidden = ({ isOpen, closeModal }) => {
 
 const ModalContainer = styled.div`
   position: fixed;
-  top: 25%;
-  left: 40%;
+  top: 20%;
+  margin: 0 auto;
   background: rgba(73, 166, 233, 0.5);
   display: grid;
   place-items: center;
@@ -22,11 +22,10 @@ const ModalContainer = styled.div`
   background: var(--clr-primary-7);
   border-radius: var(--radius);
   width: 160vw;
-  height: 50vh;
+  height: 35vh;
   max-width: var(--fixed-width);
   text-align: center;
   @media (max-width: 992px) {
-    min-height: 10vh;
     top: 40%;
     left: 33.8%;
     display: grid;

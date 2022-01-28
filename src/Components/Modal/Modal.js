@@ -55,7 +55,7 @@ const ModalBanner = styled.div`
 
 const ModalWrapper = styled.div`
   min-height: auto;
-  margin: 90px auto;
+  margin: 100px auto;
   display: grid;
   place-items: center;
 `;

@@ -24,12 +24,12 @@ const App = () => {
           <Route path="modal" element={<Modal />} />
           <Route path="qa" element={<QaContainer />} />
           <Route path="reviews" element={<Reviews />} />
-          <Route path="slider" element={<Slider />} />
+          <Route path="menu" element={<Menu />} />
           <Route path="grocerybud" element={<GroceryBud />} />
+          <Route path="slider" element={<Slider />} />
           <Route path="tabs" element={<Tabs />} />
           <Route path="timer" element={<CountDownTimer />} />
           <Route path="videoplayer" element={<VideoPlayer />} />
-          <Route path="menu" element={<Menu />} />
           <Route path="generator" element={<Generator />} />
         </Routes>
       </AppWrapperContent>

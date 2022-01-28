@@ -72,3 +72,9 @@ code {
   --max-width: 1170px;
   --fixed-width: 620px;
 }
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}

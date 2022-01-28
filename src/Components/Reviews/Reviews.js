@@ -161,7 +161,7 @@ const ReviewsWrapper = styled.section`
   @media ${devices.laptop} {
     margin: 0 auto;
     width: 55vw;
-    min-height: 65vh;
+    min-height: 60vh;
     display: grid;
     place-items: center;
   }
@@ -169,7 +169,7 @@ const ReviewsWrapper = styled.section`
     margin: 0 auto;
     width: 90vw;
     margin: 0 auto;
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
   }

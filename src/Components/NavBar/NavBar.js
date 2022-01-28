@@ -93,12 +93,10 @@ const NavToggle = styled.button`
   border-color: transparent;
   transition: var(--transition);
   cursor: pointer;
+  display: none;
   &:hover {
     color: var(--clr-primary-1);
     transform: rotate(90deg);
-  }
-  @media ${devices.tablet} {
-    display: none;
   }
 `;
 const LinksContainer = styled.div`
@@ -121,7 +119,7 @@ const LinksContainer = styled.div`
 const LinksList = styled.ul`
   @media ${devices.tablet} {
     display: flex;
-  }
+  
 `;
 const SocialIcons = styled.ul`
   display: none;
@@ -140,6 +138,7 @@ const Links = styled.a`
   display: block;
   padding: 0.5rem 1rem;
   transition: var(--transition);
+  text-decoration: none;
   &:hover {
     background: var(--clr-primary-8);
     color: var(--clr-primary-5);
@@ -153,12 +152,29 @@ const Links = styled.a`
       background: transparent;
     }
   }
+  @media ${devices.mobileM} {
+    padding: 0;
+    margin: 0 0.5rem;
+    &:hover {
+      padding: 0;
+      background: transparent;
+    }
+  }
+  @media ${devices.mobileS} {
+    padding: 0;
+    margin: 0 0.5rem;
+    &:hover {
+      padding: 0;
+      background: transparent;
+    }
+  }
 `;
 const SocialLinks = styled.a`
   @media ${devices.tablet} {
     margin: 0 0.5rem;
     color: var(--clr-primary-5);
     transition: var(--transition);
+    text-decoration: none;
     &:hover {
       color: var(--clr-primary-7);
     }

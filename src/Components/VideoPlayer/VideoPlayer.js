@@ -1,24 +1,25 @@
-import Video from "./Video";
-import PlayerControls from "./PlayerControls";
-import "./videoPlayer.css";
-import React, { useState } from "react";
+import React from "react";
+import styled from "styled-components";
 
 const VideoPlayer = () => {
-	const [playing, setPlaying] = useState(false);
-	return (
-		<div className="player-container">
-			<Video
-				playing={playing}
-				url={
-					"https://vannilla-js-basic-project-9-video-preloader.netlify.app/video.mp4"
-				}
-			/>
-			<PlayerControls
-				playing={playing}
-				onPlayPause={() => setPlaying(!playing)}
-			/>
-		</div>
-	);
+  return (
+    <VideoPlayerWrapper>
+      <div className="video-container">
+        <video width="600" height="600" controls>
+          <source
+            src="https://vannilla-js-basic-project-9-video-preloader.netlify.app/video.mp4"
+            type="video/mp4"
+          ></source>
+        </video>
+      </div>
+    </VideoPlayerWrapper>
+  );
 };
+
+const VideoPlayerWrapper = styled.div`
+  position: relative;
+  display: grid;
+  place-items: center;
+`;
 
 export default VideoPlayer;

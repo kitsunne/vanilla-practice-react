@@ -80,7 +80,7 @@ const TimerBoard = styled.div`
     color: white;
     letter-spacing: var(--spacing);
   }
-  p:nth-child(even) {
+  p {
     color: white;
     font-size: 0.8rem;
     margin: 4px;

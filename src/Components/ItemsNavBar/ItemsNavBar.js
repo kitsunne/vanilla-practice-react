@@ -9,12 +9,12 @@ const ItemsNavBar = () => {
         <StyledLink to="modal">Modal</StyledLink>
         <StyledLink to="qa">QA</StyledLink>
         <StyledLink to="reviews">Reviews</StyledLink>
-        <StyledLink to="slider">Slider</StyledLink>
+        <StyledLink to="menu">Menu</StyledLink>
         <StyledLink to="grocerybud">To Buy List</StyledLink>
+        <StyledLink to="slider">Slider</StyledLink>
         <StyledLink to="tabs">Tabs</StyledLink>
         <StyledLink to="timer">Timer</StyledLink>
         <StyledLink to="videoplayer">Video Player</StyledLink>
-        <StyledLink to="menu">Menu</StyledLink>
         <StyledLink to="generator">Generator</StyledLink>
       </LinkList>
     </NavWrapper>
