@@ -25,17 +25,31 @@ const Tabs = () => {
   );
 };
 const TabsWrapper = styled.div`
+  margin: 100px auto;
   display: grid;
   place-items: center;
-  width: 500px;
+  width: 95vw;
+  @media screen and (max-width: 768px) {
+    width: 85vw;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 const TabsHeader = styled.div`
   text-align: center;
   margin-bottom: 25px;
-  &p {
-    font-size: 1.5rem;
+  h2 {
+    @media screen and (max-width: 768px) {
+      font-size: 15px;
+    }
+  }
+  p {
+    font-size: 20px;
     width: 80%;
     margin: 0 auto;
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -44,15 +58,25 @@ const TabsContentContainer = styled.div`
   justify-content: center;
   letter-spacing: 15px;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `;
 const TabsImgContainer = styled.div`
   margin-bottom: 1rem;
   margin: 0 30px;
+  @media screen and (max-width: 768px) {
+    margin: 50px 0 30px;
+  }
   img {
     border-radius: var(--radius);
     object-fit: cover;
     width: 450px;
     height: 330px;
+    @media screen and (max-width: 768px) {
+      width: 270px;
+      height: 170px;
+    }
   }
 `;
 

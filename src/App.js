@@ -1,39 +1,14 @@
 import React from "react";
-import NavBar from "./Components/NavBar/NavBar";
-import Modal from "./Components/Modal/Modal";
-import QaContainer from "./Components/Questions/QaContainer";
-import Reviews from "./Components/Reviews/Reviews";
-import Slider from "./Components/Slider/Slider";
-import GroceryBud from "./Components/GroceryBud/GroceryBud";
-import Tabs from "./Components/Tabs/Tabs";
-import CountDownTimer from "./Components/CountdownTimer/CountDownTimer";
-import VideoPlayer from "./Components/VideoPlayer/VideoPlayer";
-import Menu from "./Components/Menu/Menu";
-import Generator from "./Components/Generator/Generator";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import styled from "styled-components";
-import ItemsNavBar from "./Components/ItemsNavBar/ItemsNavBar";
+
+import Navbar from "./Components/NavBar/NavBar";
 
 const App = () => {
   return (
-    <AppWrapper>
-      <NavBar />
-      <ItemsNavBar />
-      <AppWrapperContent>
-        <Routes>
-          <Route path="modal" element={<Modal />} />
-          <Route path="qa" element={<QaContainer />} />
-          <Route path="reviews" element={<Reviews />} />
-          <Route path="menu" element={<Menu />} />
-          <Route path="grocerybud" element={<GroceryBud />} />
-          <Route path="slider" element={<Slider />} />
-          <Route path="tabs" element={<Tabs />} />
-          <Route path="timer" element={<CountDownTimer />} />
-          <Route path="videoplayer" element={<VideoPlayer />} />
-          <Route path="generator" element={<Generator />} />
-        </Routes>
-      </AppWrapperContent>
-    </AppWrapper>
+    <Router>
+      <Navbar />
+    </Router>
   );
 };
 

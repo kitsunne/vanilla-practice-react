@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import authorList from "./authorList";
 import styled from "styled-components";
-import devices from "../../Properties/sizes";
 
 const Reviews = () => {
   const [index, setIndex] = useState(0);
@@ -95,6 +94,11 @@ const ImgContainer = styled.div`
     background: var(--clr-primary-5);
     color: var(--clr-white);
   }
+
+  @media screen and (max-width: 768px) {
+    width: 110px;
+    height: 110px;
+  }
 `;
 const AuthorImg = styled.img`
   width: 100%;
@@ -119,15 +123,16 @@ const ItemText = styled.p`
 `;
 const ButtonContainer = styled.div``;
 const ButtonSwitch = styled.button`
-	color: var(--clr-primary-7);
-	font-size: 1.25rem;
-	background: transparent;
-	border-color: transparent;
-	margin: 0 0.5rem;
-	transition: var(--transition);
-	cursor: pointer;
-	&:hover {
-		color: var(--clr-primary-5);
+  color: var(--clr-primary-7);
+  font-size: 1.25rem;
+  background: transparent;
+  border-color: transparent;
+  margin: 0 0.5rem;
+  transition: var(--transition);
+  cursor: pointer;
+  &:hover {
+    color: var(--clr-primary-5);
+  }
 `;
 const ButtonRandom = styled.button`
   font-size: 1.25rem;
@@ -148,30 +153,13 @@ const ButtonRandom = styled.button`
   }
 `;
 const ReviewsWrapper = styled.section`
-  @media ${devices.desktop} {
-    margin: 0 auto;
-    display: grid;
-    place-items: center;
-  }
-  @media ${devices.laptopL} {
-    margin: 0 auto;
-    width: 70vw;
-    max-width: var(--fixed-width);
-  }
-  @media ${devices.laptop} {
-    margin: 0 auto;
-    width: 55vw;
-    min-height: 60vh;
-    display: grid;
-    place-items: center;
-  }
-  @media ${devices.tablet} {
-    margin: 0 auto;
-    width: 90vw;
-    margin: 0 auto;
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
+  margin: 100px auto;
+  display: grid;
+  place-items: center;
+  width: 95vw;
+  max-width: var(--fixed-width);
+  @media screen and (max-width: 768px) {
+    width: 85vw;
   }
 `;
 const Underline = styled.div`

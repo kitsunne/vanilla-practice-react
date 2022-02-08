@@ -35,17 +35,27 @@ const MenuItemsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  width: 80vw;
   margin: 0 auto;
-  max-width: 1170px;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+  }
 `;
 const MenuItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 500px;
   height: 180px;
-  margin: 0 15px 15px;
+  margin: 0 50px 15px;
   cursor: pointer;
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    margin: 0;
+    width: 280px;
+  }
 `;
 
 const ItemImage = styled.img`
@@ -54,12 +64,22 @@ const ItemImage = styled.img`
   width: 200px;
   border: 0.25rem solid var(--clr-gold);
   border-radius: var(--radius);
+
+  @media screen and (max-width: 768px) {
+    width: 110px;
+    height: 80px;
+    border: 0.18rem solid var(--clr-gold);
+  }
 `;
 const ItemContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 400px;
   padding-left: 20px;
+  @media screen and (max-width: 768px) {
+    width: 150px;
+    padding-left: 10px;
+  }
 `;
 
 const ItemHeader = styled.div`
@@ -72,16 +92,27 @@ const ItemName = styled.h1`
   font-size: 17px;
   margin-bottom: 0.2rem;
   letter-spacing: -0.1px;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+    margin-bottom: 0.1rem;
+  }
 `;
 
 const ItemPrice = styled.h1`
   font-size: 16px;
   color: var(--clr-gold);
+  @media screen and (max-width: 768px) {
+    font-size: 11px;
+  }
 `;
 
 const ItemDescription = styled.p`
   margin-bottom: 0;
   padding-top: 0.4rem;
-  font-size: 12px;
+  font-size: 13px;
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+    padding-top: 0.1rem;
+  }
 `;
 export default MenuItem;

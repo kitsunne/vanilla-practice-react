@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { sliderContent } from "./sliderContent";
-import devices from "../../Properties/sizes";
 import styled from "styled-components";
 
 const Slider = () => {
@@ -8,10 +7,10 @@ const Slider = () => {
   const { img } = sliderContent[index];
 
   return (
-    <section>
-      <SlideWrapper>
+    <SliderWrapper>
+      <SliderPicBox>
         <SlidePic src={img} alt="pic" />
-      </SlideWrapper>
+      </SliderPicBox>
       <ButtonScrollContainer>
         {index > 0 ? (
           <ButtonScroll onClick={() => setIndex(index === 0 ? 0 : index - 1)}>
@@ -29,7 +28,7 @@ const Slider = () => {
           </ButtonScroll>
         )}
       </ButtonScrollContainer>
-    </section>
+    </SliderWrapper>
   );
 };
 const SlidePic = styled.img`
@@ -39,33 +38,41 @@ const SlidePic = styled.img`
   position: absolute;
   width: 100%;
 `;
-const SlideWrapper = styled.div`
-  @media ${devices.laptopL} {
+const SliderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 120px auto;
+  width: 95vw;
+  @media screen and (max-width: 768px) {
+    width: 85vw;
   }
-  @media ${devices.tablet} {
-    border: 5px solid var(--clr-primary-5);
-    width: 100vw;
-    margin: 0 auto;
-    height: 35vh;
-    max-width: var(--fixed-width);
-    position: relative;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    margin-top: 4rem;
-  }
-  @media ${devices.mobileL} {
+`;
+const SliderPicBox = styled.div`
+  border: 5px solid var(--clr-primary-5);
+  width: 600px;
+  height: 350px;
+  max-width: var(--fixed-width);
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 4rem;
+  @media screen and (max-width: 768px) {
+    width: 300px;
+    height: 170px;
   }
 `;
 const ButtonScrollContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 0.75rem;
+  margin-top: 15px;
 `;
 
 const ButtonScroll = styled.button`
   background: transparent;
   border-color: transparent;
-  font-size: 1.75rem;
+  font-size: 30px;
   cursor: pointer;
   margin: 0 0.25rem;
   text-transform: capitalize;
@@ -74,6 +81,9 @@ const ButtonScroll = styled.button`
   transition: var(--transition);
   &:hover {
     color: var(--clr-grey-3);
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
   }
 `;
 

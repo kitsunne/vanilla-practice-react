@@ -12,7 +12,7 @@
     "react-icons": "^4.3.1",
     "react-modal": "^3.14.3",
     "react-router-dom": "^6.2.1",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.0",
     "react-test-renderer": "^17.0.2",
     "styled-components": "^5.3.1",
     "web-vitals": "^1.1.2"
@@ -40,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "style-loader": "^3.3.1"
   }
 }

@@ -116,10 +116,16 @@ const SubmitButton = styled.button`
   }
 `;
 const GroceryBudWrapper = styled.div`
-  place-items: center;
+  margin: 120px auto;
+  width: 95vw;
+  height: 60vh;
+  max-width: var(--max-width);
+  @media screen and (max-width: 768px) {
+    width: 85vw;
+    margin: 160px auto;
+  }
 `;
 const GroceryBudContent = styled.section`
-  width: 90vw;
   margin: 0 auto;
   max-width: 35rem;
   margin-top: 8rem;
@@ -140,6 +146,9 @@ const GroceryForm = styled.form`
     font-size: 25px;
     text-align: center;
     text-decoration: capitalize;
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+    }
   }
 `;
 const FormControl = styled.div`
@@ -160,6 +169,10 @@ const Grocery = styled.input`
   &::placeholder {
     font-family: var(--ff-secondary);
     color: var(--clr-grey-5);
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
   }
 `;
 const ClearButton = styled.button`

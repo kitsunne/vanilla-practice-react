@@ -20,44 +20,58 @@ const Modal = () => {
     </ModalWrapper>
   );
 };
-
-const ModalOpenBtn = styled.button`
-	    text-transform: uppercase;
-	    background: transparent;
-        color: var(--clr-black);
-        padding: 0.375rem 0.75rem;
-        letter-spacing: var(--spacing);
-        display: inline-block;
-        transition: var(--transition);
-        font-size: 0.875rem;
-        border: 2px solid var(--clr-primary-5);
-        cursor: pointer;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        border-radius: var(--radius);
-	   &:hover {
-		    background: var(--clr-primary-5);
-            color: var(--clr-white);
-		   }
-	   }`;
+const ModalWrapper = styled.div`
+  margin: 150px auto;
+  width: 95vw;
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 768px) {
+    margin: 180px auto;
+    width: 85vw;
+    margin-bottom: 280px;
+  }
+`;
 
 const ModalBanner = styled.div`
-  display: grid;
-  grid-gap: 25px;
+  display: block;
   place-items: center;
   background: var(--clr-white);
-  padding: 4rem 0;
+  padding: 120px 0;
+  width: 650px;
   border-radius: var(--radius);
   box-shadow: var(--light-shadow);
   text-align: center;
-  width: 90vw;
-  max-width: var(--fixed-width);
+  h1 {
+    font-size: 30px;
+    @media screen and (max-width: 768px) {
+      font-size: 25px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    width: 350px;
+    padding: 20px 0;
+  }
 `;
-
-const ModalWrapper = styled.div`
-  min-height: auto;
-  margin: 100px auto;
-  display: grid;
-  place-items: center;
+const ModalOpenBtn = styled.button`
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--clr-black);
+  padding: 10px 15px;
+  letter-spacing: var(--spacing);
+  transition: var(--transition);
+  font-size: 15px;
+  margin: 20px auto;
+  border: 2px solid var(--clr-primary-5);
+  cursor: pointer;
+  border-radius: var(--radius);
+  &:hover {
+    background: var(--clr-primary-5);
+    color: var(--clr-white);
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
 `;
 
 export default Modal;

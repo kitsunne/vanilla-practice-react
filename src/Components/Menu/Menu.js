@@ -35,9 +35,13 @@ const MenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
   margin: 20px auto;
+  width: 95vw;
   max-width: var(--max-width);
+  @media screen and (max-width: 768px) {
+    margin: 100px auto;
+    width: 80vw;
+  }
 `;
 
 const MenuHeader = styled.div`
@@ -45,6 +49,9 @@ const MenuHeader = styled.div`
     font-size: 40px;
     text-align: center;
     margin-bottom: 1rem;
+    @media screen and (max-width: 768px) {
+      font-size: 25px;
+    }
   }
 `;
 

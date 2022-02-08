@@ -22,12 +22,20 @@ const Categories = ({ categories, filterItems }) => {
 const FilterButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-bottom: 80px;
+  @media screen and (max-width: 768px) {
+    display: grid;
+    width: 300px;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(2, 35px);
+    margin-bottom: 40px;
+    grid-gap: 5px;
+  }
 `;
 const FilterButton = styled.button`
   background: transparent;
   border-color: var(--clr-gold);
-  font-size: 1rem;
+  font-size: 18px;
   text-transform: capitalize;
   margin: 0 0.5rem;
   letter-spacing: 1px;
@@ -40,6 +48,13 @@ const FilterButton = styled.button`
   &:hover {
     background: var(--clr-gold);
     color: var(--clr-white);
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+    margin-top: 5px;
+    width: 80px;
+    padding: 0.1rem 0.4rem;
   }
 `;
 

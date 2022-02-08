@@ -92,6 +92,9 @@ function TabComponent() {
 const TabsName = styled.h2`
   color: black;
   font-size: 20px;
+  @media screen and (max-width: 768px) {
+    font-size: 15px;
+  }
 `;
 const TabsContent = styled.div`
   font-size: 20px;
@@ -134,13 +137,16 @@ const TabButton = styled.button`
   &:nth-child(3) {
     border-top-right-radius: var(--radius);
   }
-  &:hover {
+  :hover {
     background: var(--clr-primary-10);
     color: var(--clr-primary-5);
   }
-  &h2 {
+  h2 {
     color: black;
     font-size: 20px;
+    @media screen and (max-width: 768px) {
+      font-size: 10px;
+    }
   }
 `;
 const TabsItems = styled.div`
@@ -151,16 +157,28 @@ const TabsItems = styled.div`
   border-radius: var(--radius);
   background: var(--clr-white);
   padding: 0;
+  @media screen and (max-width: 768px) {
+    width: 300px;
+    height: 350px;
+    margin-bottom: 50px;
+  }
 `;
 
 const TabBlock = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 500px;
+  @media screen and (max-width: 768px) {
+    width: 300px;
+  }
 `;
 const TabsText = styled.p`
-  font-size: 1rem;
+  font-size: 18px;
   width: 480px;
+  @media screen and (max-width: 768px) {
+    width: 250px;
+    font-size: 12px;
+  }
 `;
 
 export default TabComponent;

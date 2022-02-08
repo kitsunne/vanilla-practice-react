@@ -43,20 +43,20 @@ const Timer = () => {
   return (
     <TimerWrapper>
       <TimerBoard>
-        <h1>{timerDays}</h1>
-        <p>DAYS</p>
+        <TimePeriod>{timerDays}</TimePeriod>
+        <TimePeriodName>DAYS</TimePeriodName>
       </TimerBoard>
       <TimerBoard>
-        <h1>{timerHours}</h1>
-        <p>HOURS</p>
+        <TimePeriod>{timerHours}</TimePeriod>
+        <TimePeriodName>HOURS</TimePeriodName>
       </TimerBoard>
       <TimerBoard>
-        <h1>{timerMins}</h1>
-        <p>MINS</p>
+        <TimePeriod>{timerMins}</TimePeriod>
+        <TimePeriodName>MINS</TimePeriodName>
       </TimerBoard>
       <TimerBoard>
-        <h1>{timerSecs}</h1>
-        <p>SECS</p>
+        <TimePeriod>{timerSecs}</TimePeriod>
+        <TimePeriodName>SECS</TimePeriodName>
       </TimerBoard>
     </TimerWrapper>
   );
@@ -65,26 +65,45 @@ const Timer = () => {
 const TimerWrapper = styled.section`
   display: flex;
   margin: 30px 0 0 0;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 50px;
+  }
 `;
 const TimerBoard = styled.div`
   background: var(--clr-grey-1);
   color: var(--clr-white);
   margin-right: 1rem;
-  width: 5rem;
-  height: 5rem;
+  width: 100px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  h1 {
-    font-size: 1rem;
-    color: white;
-    letter-spacing: var(--spacing);
+  justify-content: center;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    width: 50px;
+    height: 50px;
   }
-  p {
-    color: white;
-    font-size: 0.8rem;
-    margin: 4px;
-    letter-spacing: var(--spacing);
+`;
+
+const TimePeriod = styled.p`
+  font-size: 20px;
+  color: white;
+  letter-spacing: var(--spacing);
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+    margin: 2px;
+  }
+`;
+
+const TimePeriodName = styled.p`
+  color: white;
+  font-size: 0.8rem;
+  margin: 4px;
+  letter-spacing: var(--spacing);
+  @media screen and (max-width: 768px) {
+    font-size: 7px;
+    margin: 2px;
   }
 `;
 

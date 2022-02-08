@@ -48,10 +48,19 @@ const GeneratorWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 80px auto;
+  margin: 120px auto;
+  width: 95vw;
+
+  @media screen and (max-width: 768px) {
+    width: 85vw;
+    margin: 140px auto;
+  }
   h1 {
     font-size: 40px;
     text-align: center;
+    @media screen and (max-width: 768px) {
+      font-size: 15px;
+    }
   }
 `;
 
@@ -59,13 +68,20 @@ const GeneratorSelector = styled.form`
   text-transform: capitalize;
   letter-spacing: var(--spacing);
   margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: var(--fixed-width);
+  @media screen and (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
   label {
     font-size: 25px;
     color: black;
+    @media screen and (max-width: 768px) {
+      font-size: 15px;
+    }
   }
   #amount {
     border: 2px solid var(--clr-primary-5);
@@ -74,10 +90,14 @@ const GeneratorSelector = styled.form`
 
 const GeneratorForm = styled.input`
   padding: 0.25rem 0.5rem;
-  width: 4rem;
+  width: 50px;
   border-radius: var(--radius);
   margin: 0 0.5rem;
   font-size: 1.25rem;
+  @media screen and (max-width: 768px) {
+    padding: 0.1rem 0.5rem;
+    width: 20px;
+  }
 `;
 const GeneratorButton = styled.button`
   text-transform: uppercase;
@@ -87,7 +107,7 @@ const GeneratorButton = styled.button`
   letter-spacing: 1px;
   display: inline-block;
   transition: var(--transition);
-  font-size: 0.875rem;
+  font-size: 15px;
   border: 2px solid var(--clr-primary-5);
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -97,11 +117,15 @@ const GeneratorButton = styled.button`
     background: var(--clr-primary-8);
     border-color: var(--clr-primary-8);
   }
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+  }
 `;
 const Paragraph = styled.div`
-  width: 600px;
+  max-width: var(--fixed-width);
   text-align: center;
-  p {
+  font-size: 20px;
+  @media screen and (max-width: 768px) {
     font-size: 15px;
   }
 `;
