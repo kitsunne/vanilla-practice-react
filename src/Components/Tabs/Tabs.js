@@ -25,12 +25,13 @@ const Tabs = () => {
   );
 };
 const TabsWrapper = styled.div`
-  margin: 100px auto;
+  margin: 50px auto 150px auto;
   display: grid;
   place-items: center;
   width: 95vw;
   @media screen and (max-width: 768px) {
     width: 85vw;
+    margin: 100px auto;
     display: flex;
     flex-direction: column;
   }
@@ -49,7 +50,11 @@ const TabsHeader = styled.div`
     margin: 0 auto;
     @media screen and (max-width: 768px) {
       font-size: 14px;
+      width: 85%;
     }
+  }
+  @media screen and (max-width: 768px) {
+    margin-bottom: 10px;
   }
 `;
 
@@ -59,14 +64,14 @@ const TabsContentContainer = styled.div`
   letter-spacing: 15px;
   align-items: center;
   @media screen and (max-width: 768px) {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 `;
 const TabsImgContainer = styled.div`
   margin-bottom: 1rem;
   margin: 0 30px;
   @media screen and (max-width: 768px) {
-    margin: 50px 0 30px;
+    margin: 10px 0 20px;
   }
   img {
     border-radius: var(--radius);

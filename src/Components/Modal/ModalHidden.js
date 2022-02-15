@@ -17,7 +17,7 @@ const ModalContainer = styled.div`
   display: grid;
   place-items: center;
   top: 25%;
-  left: 32%;
+  left: 26%;
   width: 700px;
   height: 450px;
   background: rgba(73, 166, 233, 0.5);
@@ -26,7 +26,7 @@ const ModalContainer = styled.div`
   border-radius: var(--radius);
   text-align: center;
   @media screen and (max-width: 768px) {
-    top: 30%;
+    top: 27%;
     left: 3%;
     width: 340px;
     height: 210px;

@@ -43,7 +43,7 @@ const SliderWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 120px auto;
+  margin: 70px auto;
   width: 95vw;
   @media screen and (max-width: 768px) {
     width: 85vw;

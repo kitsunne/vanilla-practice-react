@@ -109,9 +109,9 @@ const NavbarWrapper = styled.div`
   align-items: center;
   position: sticky;
   top: 0;
-  padding: 35px 160px;
+  padding: 35px 25px;
   z-index: 1000;
-  font-size: 20px;
+  font-size: 17px;
 
   @media screen and (max-width: 1024px) {
     padding: 30px 0;

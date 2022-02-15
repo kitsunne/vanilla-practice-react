@@ -167,7 +167,7 @@ const TabsItems = styled.div`
 const TabBlock = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 500px;
+  width: 600px;
   @media screen and (max-width: 768px) {
     width: 300px;
   }
