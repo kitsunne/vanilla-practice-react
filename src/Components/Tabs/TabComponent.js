@@ -104,6 +104,9 @@ const TabsContent = styled.div`
   padding: 2rem;
   margin: 0.2rem 0;
   height: fit-content;
+  @media screen and (max-width: 768px) {
+    padding: 0.2rem 1.7rem;
+  }
 `;
 
 const TabButton = styled.button`
@@ -118,6 +121,9 @@ const TabButton = styled.button`
     transition: var(--transition);
     letter-spacing: var(--spacing);
     margin: 0;
+    @media screen and (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
   &.active {
     color: black;
@@ -130,6 +136,9 @@ const TabButton = styled.button`
     letter-spacing: var(--spacing);
     margin: 0;
     background: var(--clr-white);
+    @media screen and (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
   &:nth-child(1) {
     border-top-left-radius: var(--radius);
@@ -140,13 +149,6 @@ const TabButton = styled.button`
   :hover {
     background: var(--clr-primary-10);
     color: var(--clr-primary-5);
-  }
-  h2 {
-    color: black;
-    font-size: 20px;
-    @media screen and (max-width: 768px) {
-      font-size: 10px;
-    }
   }
 `;
 const TabsItems = styled.div`

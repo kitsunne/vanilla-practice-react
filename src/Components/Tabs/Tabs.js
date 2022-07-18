@@ -6,7 +6,7 @@ const Tabs = () => {
   return (
     <TabsWrapper>
       <TabsHeader>
-        <h2>About</h2>
+        <h1>About</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum,
           aperiam!
@@ -25,13 +25,13 @@ const Tabs = () => {
   );
 };
 const TabsWrapper = styled.div`
-  margin: 50px auto 150px auto;
+  margin: 50px auto;
   display: grid;
   place-items: center;
   width: 95vw;
   @media screen and (max-width: 768px) {
     width: 85vw;
-    margin: 100px auto;
+    margin: 90px auto;
     display: flex;
     flex-direction: column;
   }
@@ -39,9 +39,9 @@ const TabsWrapper = styled.div`
 const TabsHeader = styled.div`
   text-align: center;
   margin-bottom: 25px;
-  h2 {
+  h1 {
     @media screen and (max-width: 768px) {
-      font-size: 15px;
+      font-size: 17px;
     }
   }
   p {
@@ -79,7 +79,7 @@ const TabsImgContainer = styled.div`
     width: 450px;
     height: 330px;
     @media screen and (max-width: 768px) {
-      width: 270px;
+      width: 300px;
       height: 170px;
     }
   }

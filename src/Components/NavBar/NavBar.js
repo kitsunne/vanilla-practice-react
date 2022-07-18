@@ -26,12 +26,8 @@ const Navbar = () => {
         {!isMenuOpen ? <HiMenu color="black" /> : <IoMdClose color="black" />}
       </MenuHeader>
       <NavbarWrapper isMenuOpen={isMenuOpen}>
-        <img
-          src="https://raw.githubusercontent.com/john-smilga/react-projects/e44b541e002fca44db1e07b2d0a5275824f6d0e6/11-navbar/final/src/logo.svg"
-          alt="logo"
-        />
         <LinksContainer>
-          <StyledLink to="/" onClick={handleMenuOpen}>
+          <StyledLink to="/modal" onClick={handleMenuOpen}>
             Modal
           </StyledLink>
           <StyledLink to="/qa" onClick={handleMenuOpen}>
@@ -40,7 +36,7 @@ const Navbar = () => {
           <StyledLink to="/reviews" onClick={handleMenuOpen}>
             Reviews
           </StyledLink>
-          <StyledLink to="menu" onClick={handleMenuOpen}>
+          <StyledLink to="/" onClick={handleMenuOpen}>
             Menu
           </StyledLink>
           <StyledLink to="/grocerybud" onClick={handleMenuOpen}>
@@ -65,10 +61,10 @@ const Navbar = () => {
       </NavbarWrapper>
 
       <Routes>
-        <Route path="/" element={<Modal />} />
+        <Route path="modal" element={<Modal />} />
         <Route path="qa" element={<QaContainer />} />
         <Route path="reviews" element={<Reviews />} />
-        <Route path="menu" element={<Menu />} />
+        <Route path="/" element={<Menu />} />
         <Route path="grocerybud" element={<GroceryBud />} />
         <Route path="slider" element={<Slider />} />
         <Route path="tabs" element={<Tabs />} />
@@ -105,17 +101,19 @@ const MenuHeader = styled.div`
 
 const NavbarWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  padding: 35px 25px;
-  z-index: 1000;
+  padding: 30px 0;
   font-size: 17px;
-
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  @media screen and (max-width: 1440px) {
+    font-size: 13px;
+  }
   @media screen and (max-width: 1024px) {
-    padding: 30px 0;
-    font-size: 16px;
+    font-size: 11px;
   }
   @media screen and (max-width: 768px) {
     display: flex;

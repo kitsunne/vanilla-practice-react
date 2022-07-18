@@ -34,23 +34,23 @@ const Menu = () => {
 const MenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin: 20px auto;
   width: 95vw;
   max-width: var(--max-width);
   @media screen and (max-width: 768px) {
     margin: 100px auto;
-    width: 80vw;
+    width: 90vw;
   }
 `;
 
 const MenuHeader = styled.div`
   h1 {
-    font-size: 40px;
     text-align: center;
     margin-bottom: 1rem;
     @media screen and (max-width: 768px) {
-      font-size: 25px;
+      font-size: 20px;
     }
   }
 `;

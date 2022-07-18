@@ -32,10 +32,8 @@ const Slider = () => {
   );
 };
 const SlidePic = styled.img`
-  display: block;
   height: 100%;
   object-fit: cover;
-  position: absolute;
   width: 100%;
 `;
 const SliderWrapper = styled.div`
@@ -43,11 +41,7 @@ const SliderWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 70px auto;
-  width: 95vw;
-  @media screen and (max-width: 768px) {
-    width: 85vw;
-  }
+  margin: 120px auto;
 `;
 const SliderPicBox = styled.div`
   border: 5px solid var(--clr-primary-5);

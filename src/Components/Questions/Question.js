@@ -29,8 +29,8 @@ const QuestionWrapper = styled.article`
   width: 500px;
   border: 2px solid var(--clr-primary-5);
   @media screen and (max-width: 768px) {
-    padding: 0.2rem 1rem;
-    width: 230px;
+    padding: 0.1rem 0.8rem;
+    width: 240px;
   }
 `;
 const QuestionHeader = styled.header`
@@ -51,6 +51,7 @@ const QuestionInfo = styled.p`
   margin-top: 0.5rem;
   font-size: 1rem;
   @media screen and (max-width: 768px) {
+    margin-top: 0.2rem;
     font-size: 0.7rem;
   }
 `;

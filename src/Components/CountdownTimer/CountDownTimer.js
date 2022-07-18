@@ -13,7 +13,7 @@ const CountDownTimer = () => {
       <CountDownInfoContainer>
         <CountDownInfo>
           <h1>OLD IPHONE GIVEAWAY</h1>
-          <Text>Giveaway Ends On Monday, 30 May 2022 11:30am</Text>
+          <Text>Giveaway Ends On Monday, 31 Dec 2022 11:30am</Text>
           <Text>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Reprehenderit molestiae cum libero atque ut voluptate qui
@@ -28,9 +28,10 @@ const CountDownTimer = () => {
 };
 const CountDownWrapper = styled.div`
   min-height: auto;
-  margin: 120px auto;
+  margin: 200px auto;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 95vw;
   @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
@@ -40,7 +41,6 @@ const CountDownWrapper = styled.div`
   }
 `;
 const CountDownImageContainer = styled.div`
-  margin-bottom: 2rem;
   margin: 0 40px;
   @media screen and (max-width: 768px) {
     margin: 0;

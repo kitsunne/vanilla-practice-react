@@ -27,7 +27,7 @@ const ModalContainer = styled.div`
   text-align: center;
   @media screen and (max-width: 768px) {
     top: 27%;
-    left: 3%;
+    left: 4.5%;
     width: 340px;
     height: 210px;
   }
@@ -35,6 +35,7 @@ const ModalContainer = styled.div`
 
 const ModalExitBtn = styled.button`
   position: absolute;
+
   top: 1.5rem;
   right: 1.5rem;
   font-size: 40px;
@@ -50,7 +51,7 @@ const ModalExitBtn = styled.button`
   @media screen and (max-width: 768px) {
     font-size: 30px;
     top: 1rem;
-    right: 0;
+    right: 0.5rem;
   }
 `;
 const ModalText = styled.h3`

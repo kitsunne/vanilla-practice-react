@@ -9,7 +9,7 @@ const Reviews = () => {
   return (
     <ReviewsWrapper>
       <ReviewsHeader>
-        <h2>our reviews</h2>
+        <h1>OUR REVIEWS</h1>
         <Underline />
       </ReviewsHeader>
       <ReviewContent>
@@ -48,7 +48,7 @@ const Reviews = () => {
 };
 
 const ReviewsHeader = styled.div`
-  text-align: "center";
+  text-align: center;
 `;
 const ReviewContent = styled.article`
   background: var(--clr-white);
@@ -110,7 +110,6 @@ const AuthorImg = styled.img`
 `;
 const ItemAuthor = styled.h4`
   margin-bottom: 0.25rem;
-  text-size: 0.2rem;
 `;
 const ItemJob = styled.h1`
   margin-bottom: 0.5rem;
@@ -120,6 +119,11 @@ const ItemJob = styled.h1`
 `;
 const ItemText = styled.p`
   margin-bottom: 0.75rem;
+  font-size: 18px;
+  @media screen and (max-width: 768px) {
+    font-size: 13px;
+    margin-bottom: 0.3rem;
+  }
 `;
 const ButtonContainer = styled.div``;
 const ButtonSwitch = styled.button`
@@ -159,6 +163,7 @@ const ReviewsWrapper = styled.section`
   width: 95vw;
   max-width: var(--fixed-width);
   @media screen and (max-width: 768px) {
+    margin: 90px auto;
     width: 85vw;
   }
 `;

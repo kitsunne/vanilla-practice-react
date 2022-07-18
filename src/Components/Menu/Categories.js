@@ -22,14 +22,15 @@ const Categories = ({ categories, filterItems }) => {
 const FilterButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 80px;
+
   @media screen and (max-width: 768px) {
-    display: grid;
+    margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
     width: 300px;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(2, 35px);
-    margin-bottom: 40px;
-    grid-gap: 5px;
+    margin-bottom: 30px;
   }
 `;
 const FilterButton = styled.button`
@@ -51,10 +52,12 @@ const FilterButton = styled.button`
   }
 
   @media screen and (max-width: 768px) {
-    font-size: 10px;
-    margin-top: 5px;
+    font-size: 8px;
     width: 80px;
-    padding: 0.1rem 0.4rem;
+    padding: 5px 7px;
+    &:nth-child(1) {
+      margin-right: auto;
+    }
   }
 `;
 
